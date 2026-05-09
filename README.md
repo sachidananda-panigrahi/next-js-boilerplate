@@ -1,4 +1,4 @@
-# Boilerplate and Starter for Next.js 16+, Tailwind CSS 4, and TypeScript.
+# Next.js 16+ Boilerplate — Tailwind CSS 4 & TypeScript
 
 <p align="center">
   <a href="https://github.com/sachidananda-panigrahi/next-js-boilerplate">
@@ -10,329 +10,453 @@
   </a>
 </p>
 
-🚀 Boilerplate and Starter for Next.js with App Router, Tailwind CSS, and TypeScript ⚡️ Prioritizing developer experience first: Next.js, TypeScript, ESLint, Prettier, Lefthook (replacing Husky), Lint-Staged, Vitest (replacing Jest), Testing Library, Playwright, Commitlint, VSCode, Tailwind CSS, Authentication with [Clerk](https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate), Database with DrizzleORM (PostgreSQL, SQLite, and MySQL), Local database with PGlite and production with [Neon](https://get.neon.com/BMFYNtx), Error Monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo), Logging with LogTape (replacing Pino.js) and Log Management, Monitoring as Code, Storybook, Multi-language (i18n), AI-powered code reviews with CodeRabbit, Secure with [Arcjet](https://launch.arcjet.com/Q6eLbRE) (Bot detection, Rate limiting, Attack protection, etc.), and more.
-
-Clone this project and use it to create your own Next.js project. You can check out the repository at [sachidananda-panigrahi/next-js-boilerplate](https://github.com/sachidananda-panigrahi/next-js-boilerplate), which includes a working authentication system.
-
-## Sponsors
-
-<table width="100%">
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/clerk-logo-dark.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/clerk-logo-dark.png?raw=true">
-          <img alt="Clerk – Authentication & User Management for Next.js" src="public/assets/images/clerk-logo-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/coderabbit-logo-dark.svg?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/coderabbit-logo-light.svg?raw=true">
-          <img alt="CodeRabbit" src="public/assets/images/coderabbit-logo-light.svg?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/sentry-white.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/sentry-dark.png?raw=true">
-          <img alt="Sentry" src="public/assets/images/sentry-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-  </tr>
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://launch.arcjet.com/Q6eLbRE">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/arcjet-dark.svg?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/arcjet-light.svg?raw=true">
-          <img alt="Arcjet" src="public/assets/images/arcjet-light.svg?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://l.crowdin.com/next-js">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/crowdin-white.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/crowdin-dark.png?raw=true">
-          <img alt="Crowdin" src="public/assets/images/crowdin-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/better-stack-white.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/better-stack-dark.png?raw=true">
-          <img alt="Better Stack" src="public/assets/images/better-stack-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-  </tr>
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://posthog.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://posthog.com/brand/posthog-logo-white.svg">
-          <source media="(prefers-color-scheme: light)" srcset="https://posthog.com/brand/posthog-logo.svg">
-          <img alt="PostHog" src="https://posthog.com/brand/posthog-logo.svg">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/checkly-logo-dark.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/checkly-logo-light.png?raw=true">
-          <img alt="Checkly" src="public/assets/images/checkly-logo-light.png?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" style=width="33%">
-      <a href="https://github.com/sachidananda-panigrahi/next-js-boilerplate">
-        <img src="public/assets/images/nextjs-boilerplate-saas.png?raw=true" alt="Next.js SaaS Boilerplate with React" />
-      </a>
-    </td>
-  </tr>
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://github.com/sachidananda-panigrahi/next-js-boilerplate">
-        Add your logo here
-      </a>
-    </td>
-  </tr>
-</table>
-
-### Demo
+A production-ready, Fintech-hardened boilerplate for Next.js with App Router, Tailwind CSS 4, and TypeScript. Focused on developer experience, security, and observability — without the overhead of a database, authentication, or UI component library baked in.
 
 **Repository: [sachidananda-panigrahi/next-js-boilerplate](https://github.com/sachidananda-panigrahi/next-js-boilerplate)**
 
-| Sign Up | Sign In |
-| --- | --- |
-| [![Project Sign Up](public/assets/images/nextjs-boilerplate-sign-in.png)](http://localhost:3000/sign-up) | [![Project Sign In](public/assets/images/nextjs-boilerplate-sign-in.png)](http://localhost:3000/sign-in) |
+---
 
-### Features
+## Features
 
-Developer experience first, extremely flexible code structure and only keep what you need:
+Developer experience first. Only keep what you need — no hidden magic, no mandatory services:
 
-- ⚡ [Next.js](https://nextjs.org) with App Router support
-- 🔥 Type checking [TypeScript](https://www.typescriptlang.org)
-- 💎 Integrate with [Tailwind CSS](https://tailwindcss.com)
+- ⚡ [Next.js 16](https://nextjs.org) with App Router and Turbopack
+- 🔥 [TypeScript 6](https://www.typescriptlang.org) with strict mode
+- 💎 [Tailwind CSS 4](https://tailwindcss.com) utility classes
 - 🤖 AI coding agent instructions for Claude Code, Codex, Cursor, OpenCode, Copilot, and more
-- ✅ Strict Mode for TypeScript and React 19
-- 🔒 Authentication with [Clerk](https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate): Sign up, Sign in, Sign out, Forgot password, Reset password, and more.
-- 👤 Passwordless Authentication with Magic Links, Multi-Factor Auth (MFA), Social Auth (Google, Facebook, Twitter, GitHub, Apple, and more), Passwordless login with Passkeys, User Impersonation
-- 📦 Type-safe ORM with DrizzleORM, compatible with PostgreSQL, SQLite, and MySQL
-- 💽 Offline and local development database with PGlite
-- ☁️ Remote and production database with [Neon](https://get.neon.com/BMFYNtx)
-- 🌐 Multi-language (i18n) with next-intl and [Crowdin](https://l.crowdin.com/next-js)
-- ♻️ Type-safe environment variables with T3 Env
-- ⌨️ Form handling with React Hook Form
-- 🔴 Validation library with Zod
-- 📏 Linter with Oxlint with Ultracite preset (replacing ESLint)
-- 💖 Code Formatter with Oxfmt (replacing Prettier)
-- 🦊 Husky for Git Hooks (replaced by Lefthook)
-- 🚫 Lint-staged for running linters on Git staged files
-- 🚓 Lint git commit with Commitlint
-- 📓 Write standard compliant commit messages with Commitizen
-- 🔍 Unused files and dependencies detection with Knip
-- 🌍 I18n validation and missing translation detection with i18n-check
-- 🦺 Unit Testing with Vitest and Browser mode (replacing React Testing Library)
-- 🧪 Integration and E2E Testing with Playwright
-- 👷 Run tests on pull request with GitHub Actions
-- 🎉 Storybook for UI development
+- ✅ React 19 with React Compiler (replaces `useMemo`/`useCallback`)
+- 🔐 Security hardened for Fintech — HTTP security headers, bot protection, WAF, PII-safe error monitoring
+- 🛡️ [Arcjet](https://launch.arcjet.com/Q6eLbRE) — Bot detection, rate limiting, Shield WAF, attack protection
+- 📝 Server-side structured logging with [LogTape](https://logtape.org) and [Better Stack](https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi)
+- 🌐 Multi-language (i18n) with [next-intl](https://next-intl.dev) and [Crowdin](https://l.crowdin.com/next-js)
+- ♻️ Type-safe environment variables with [T3 Env](https://env.t3.gg)
+- ⌨️ Form handling with [React Hook Form](https://react-hook-form.com) + [@hookform/resolvers](https://github.com/react-hook-form/resolvers)
+- 🔴 Validation with [Zod 4](https://zod.dev)
+- 📏 Linting with [Oxlint](https://oxc.rs/docs/guide/usage/linter) via [Ultracite](https://ultracite.js.org)
+- 💖 Formatting with [Oxfmt](https://oxc.rs/docs/guide/usage/formatter)
+- 🦊 Git hooks with [Lefthook](https://github.com/evilmartians/lefthook) (replacing Husky)
+- 🔍 Unused files and dependency detection with [Knip](https://knip.dev)
+- 🌍 Translation validation with [i18n-check](https://github.com/lingualdev/i18n-check)
+- 🦺 Unit testing with [Vitest](https://vitest.dev) browser mode
+- 🧪 E2E testing with [Playwright](https://playwright.dev)
+- 👷 CI pipeline with [GitHub Actions](https://github.com/features/actions) (build, lint, unit, E2E)
 - 🐰 AI-powered code reviews with [CodeRabbit](https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025)
-- 🚨 Error Monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)
-- 🔍 Local development error monitoring with Sentry Spotlight
-- ☂️ Code coverage with Codecov
-- 📝 Logging with LogTape and Log Management with [Better Stack](https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi)
+- 🚨 Error monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo) (PII-safe, sampling tuned for production)
+- 🔍 Local development error monitoring with [Sentry Spotlight](https://spotlightjs.com)
+- ☂️ Code coverage with [Codecov](https://codecov.io)
 - 🖥️ Monitoring as Code with [Checkly](https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi)
-- 🔐 Security and bot protection ([Arcjet](https://launch.arcjet.com/Q6eLbRE))
-- 📊 Analytics with PostHog
-- 🎁 Automatic changelog generation with Semantic Release
-- 🔍 Visual regression testing
-- 💡 Absolute Imports using `@` prefix
-- 🗂 VSCode configuration: Debug, Settings, Tasks and Extensions
-- 🤖 SEO metadata, JSON-LD and Open Graph tags
-- 🗺️ Sitemap.xml and robots.txt
-- 👷 Automatic dependency updates with Dependabot
-- ⌘ Database exploration with Drizzle Studio and CLI migration tool with Drizzle Kit
-- ⚙️ Bundler Analyzer
-- 🌈 Include a FREE minimalist theme
-- 💯 Maximize lighthouse score
+- 📊 Analytics with [PostHog](https://posthog.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi)
+- 💡 Absolute imports with `@/` prefix
+- 🗂 VSCode configuration: Debug, Settings, Tasks, and Extensions
+- 🤖 SEO metadata, JSON-LD, and Open Graph tags
+- 🗺️ `sitemap.xml` and `robots.txt`
+- 👷 Automatic dependency updates with [Dependabot](https://github.com/dependabot)
+- ⚙️ Bundle analyzer
 
-Built-in features from Next.js:
+Built-in from Next.js:
 
-- ☕ Minify HTML & CSS
+- ☕ Minified HTML & CSS
 - 💨 Live reload
 - ✅ Cache busting
 
-Optional features (easy to add):
+### What was intentionally removed
 
-- 🔑 Multi-tenancy, Role-based access control (RBAC)
-- 🔐 OAuth for Single Sign-On (SSO), Enterprise SSO, SAML, OpenID Connect (OIDC), EASIE
-- 🔗 Web 3 (Base, MetaMask, Coinbase Wallet, OKX Wallet)
+This boilerplate is slimmed down from the upstream template to reduce scope and attack surface:
+
+| Removed | Reason |
+| --- | --- |
+| Clerk authentication | No auth baked in — add your own (Better Auth, NextAuth, Auth.js) |
+| DrizzleORM + DrizzleKit | No database layer — bring your own ORM and provider |
+| PGlite (local DB) | Not needed without ORM |
+| Neon (remote DB) | Not needed without ORM |
+| Storybook | Removed to reduce tooling surface area |
+| Semantic Release | Manual releases preferred; changelog via conventional commits |
+| Commitlint | Commit format enforced by convention, not tooling |
+| Commitizen | Removed with Commitlint |
+
+### Optional features (easy to add)
+
+- 🔑 Authentication — [Better Auth](https://www.better-auth.com), [Auth.js](https://authjs.dev), or [Clerk](https://clerk.com)
+- 🗄️ Database — [DrizzleORM](https://orm.drizzle.team), [Prisma](https://www.prisma.io), or [Neon](https://neon.tech) serverless Postgres
+- 🔐 Multi-tenancy, RBAC, OAuth / SSO / SAML / OIDC
+- 🔗 Web3 (Base, MetaMask, Coinbase Wallet)
+- 🖥️ UI component library — Shadcn UI, Radix, or any headless library
 
 ### Philosophy
 
-- Nothing is hidden from you, allowing you to make any necessary adjustments to suit your requirements and preferences.
-- Dependencies are regularly updated on a monthly basis
-- Start for free without upfront costs
-- Easy to customize
-- Minimal code
+- Nothing hidden — adjust any file to fit your requirements
+- Dependencies updated monthly via Dependabot
+- Start for free, no mandatory paid services
+- Minimal code, no magic
 - Unstyled template
 - SEO-friendly
-- 🚀 Production-ready
+- Production-ready
 
-### Requirements
+---
 
-- Node.js 22+ and npm
+## Requirements
 
-### Getting started
+- Node.js 22+
+- pnpm 9+ (recommended) or npm
 
-Run the following command on your local environment:
+---
+
+## Getting started
 
 ```shell
 git clone --depth=1 https://github.com/sachidananda-panigrahi/next-js-boilerplate.git my-project-name
 cd my-project-name
-npm install
+pnpm install
 ```
 
-For your information, all dependencies are updated every month.
-
-Then, you can run the project locally in development mode with live reload by executing:
+Run the project locally in development mode:
 
 ```shell
-npm run dev
+pnpm dev
 ```
 
-Open http://localhost:3000 with your favorite browser to see your project. For your information, the project is already pre-configured with a local database using PGlite. No extra setup is required to run the project locally.
+Open [http://localhost:3000](http://localhost:3000) to see your project. No database or external service is required to start.
 
-Need advanced features? Multi-tenancy & Teams, Roles & Permissions, Shadcn UI, End-to-End Typesafety with oRPC, Stripe Payment, Light / Dark mode. Extend this starter from [your repository](https://github.com/sachidananda-panigrahi/next-js-boilerplate).
+---
 
-Or, need a self-hosted auth stack (Better Auth)? You can evolve it from [your repository](https://github.com/sachidananda-panigrahi/next-js-boilerplate)
-
-### Set up authentication
-
-To get started, create a Clerk account at [Clerk.com](https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate) and create a new application in the Clerk Dashboard. Then copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` values and add them to your `.env.local` file (not tracked by Git):
-
-```shell
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_pub_key
-CLERK_SECRET_KEY=your_clerk_secret_key
-```
-
-You now have a fully functional authentication system with Next.js, including features such as sign up, sign in, sign out, forgot password, reset password, update profile, update password, update email, delete account, and more.
-
-### Set up remote database
-
-The project uses DrizzleORM, a type-safe ORM that is compatible with PostgreSQL, SQLite, and MySQL databases. By default, the project is configured to seamlessly work with PostgreSQL, and you have the flexibility to choose any PostgreSQL database provider of your choice.
-
-When you launch the project locally for the first time, it automatically creates a PostgreSQL database on your local machine. This allows you to work with a PostgreSQL database without Docker or any additional setup.
-
-To set up a remote and production database, you need to create a PostgreSQL database and obtain the connection string. One recommended option is to use [Neon](https://get.neon.com/BMFYNtx), which provides a free PostgreSQL database. This database is compatible and has been tested with Next.js Boilerplate.
-
-After creating your Neon account, you can get the connection string and copy it to the `DATABASE_URL` variable in your `.env.production` file.
-
-> :warning: This project works out of the box with any PostgreSQL provider. Neon is mentioned here because it offers a free tier, and the link is an affiliate link. Feel free to use any PostgreSQL provider that fits your needs.
-
-#### Create a fresh and empty database
-
-If you want to create a fresh and empty database, you just need to remove the folder `local.db` from the root of the project. The next time you run the project, a new database will be created automatically.
-
-### Translation (i18n) setup
-
-For translation, the project uses `next-intl` combined with [Crowdin](https://l.crowdin.com/next-js). As a developer, you only need to take care of the English (or another default language) version. Translations for other languages are automatically generated and handled by Crowdin. You can use Crowdin to collaborate with your translation team or translate the messages yourself with the help of machine translation.
-
-To set up translation (i18n), create an account at [Crowdin.com](https://l.crowdin.com/next-js) and create a new project. In the newly created project, you will be able to find the project ID. You will also need to create a new Personal Access Token by going to Account Settings > API. Then, in your GitHub Actions, you need to define the following environment variables: `CROWDIN_PROJECT_ID` and `CROWDIN_PERSONAL_TOKEN`.
-
-After defining the environment variables in your GitHub Actions, your localization files will be synchronized with Crowdin every time you push a new commit to the `main` branch.
-
-### Project structure
+## Project structure
 
 ```shell
 .
-├── README.md                       # README file
-├── .github                         # GitHub folder
-│   ├── actions                     # Reusable actions
-│   └── workflows                   # GitHub Actions workflows
-├── .storybook                      # Storybook folder
-├── .vscode                         # VSCode configuration
-├── migrations                      # Database migrations
-├── public                          # Public assets folder
-├── src
-│   ├── app                         # Next JS App (App Router)
-│   ├── components                  # React components
-│   ├── libs                        # 3rd party libraries configuration
-│   ├── locales                     # Locales folder (i18n messages)
-│   ├── models                      # Database models
-│   ├── styles                      # Styles folder
-│   ├── templates                   # Templates folder
-│   ├── types                       # Type definitions
-│   ├── utils                       # Utilities folder
-│   └── validations                 # Validation schemas
-├── tests
-│   ├── e2e                         # E2E tests, also includes Monitoring as Code
-│   └── integration                 # Integration tests
-├── drizzle.config.ts               # Drizzle ORM configuration
-├── eslint.config.mjs               # ESLint configuration
-├── next.config.ts                  # Next JS configuration
-├── package.json                    # NPM dependencies and scripts
-├── playwright.config.ts            # Playwright configuration
-├── tsconfig.json                   # TypeScript configuration
-└── vitest.config.mts               # Vitest configuration
+├── README.md                       # This file
+├── AGENTS.md                       # AI agent coding instructions
+├── CLAUDE.md                       # References AGENTS.md
+├── .github/
+│   ├── actions/setup-project/      # Reusable CI setup action
+│   └── workflows/
+│       ├── CI.yml                  # Build, lint, unit, E2E pipeline
+│       ├── checkly.yml             # Post-deploy monitoring tests
+│       └── crowdin.yml             # Translation sync
+├── .vscode/                        # VSCode settings and extensions
+├── public/                         # Static assets
+├── src/
+│   ├── app/
+│   │   └── [locale]/
+│   │       ├── (auth)/             # Protected pages (dashboard)
+│   │       ├── (marketing)/        # Public pages (home, about, portfolio)
+│   │       └── layout.tsx          # Root layout
+│   ├── components/                 # Shared React components
+│   ├── libs/
+│   │   ├── Arcjet.ts               # Arcjet client (Shield WAF + bot detection)
+│   │   ├── Env.ts                  # Type-safe environment variables (T3 Env)
+│   │   ├── I18n.ts                 # next-intl configuration
+│   │   ├── I18nNavigation.ts       # Localised Link and navigation helpers
+│   │   ├── I18nRouting.ts          # next-intl routing configuration
+│   │   └── Logger.ts               # Server-only structured logger (LogTape)
+│   ├── locales/
+│   │   ├── en.json                 # English translations
+│   │   └── fr.json                 # French translations
+│   ├── proxy.ts                    # Next.js middleware (Arcjet + i18n routing)
+│   ├── styles/
+│   │   └── global.css              # Global styles
+│   ├── templates/
+│   │   └── BaseTemplate.tsx        # Base layout template
+│   ├── types/
+│   │   ├── I18n.ts                 # next-intl type augmentations
+│   │   └── global.d.ts             # Global module declarations (images, etc.)
+│   ├── utils/
+│   │   ├── AppConfig.ts            # App-level configuration constants
+│   │   └── Helpers.ts              # Shared utilities
+│   ├── instrumentation.ts          # Sentry server-side instrumentation
+│   └── instrumentation-client.ts   # Sentry client-side instrumentation
+├── tests/
+│   └── e2e/
+│       ├── I18n.e2e.ts             # Language switching E2E test
+│       └── Sanity.check.e2e.ts     # Checkly sanity checks
+├── checkly.config.ts               # Checkly Monitoring as Code config
+├── knip.config.ts                  # Knip unused code/dep detection
+├── lefthook.yml                    # Git pre-commit hooks
+├── next.config.ts                  # Next.js config (security headers, plugins)
+├── playwright.config.ts            # Playwright E2E test config
+├── tsconfig.json                   # TypeScript config
+└── vitest.config.ts                # Vitest unit test config
 ```
 
-### Customization
+---
 
-You can easily configure Next js Boilerplate by searching the entire project for `FIXME:` to make quick customizations. Here are some of the most important files to customize:
+## Environment variables
 
-- `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-16x16.png` and `public/favicon-32x32.png`: your website favicon
-- `src/utils/AppConfig.ts`: configuration file
-- `src/templates/BaseTemplate.tsx`: default theme
-- `next.config.ts`: Next.js configuration
-- `.env`: default environment variables
+All environment variables are validated at startup via `src/libs/Env.ts`. Never read `process.env` directly — import `Env` instead.
 
-You have full access to the source code for further customization. The provided code is just an example to help you start your project. The sky's the limit 🚀.
+### Server-side only
 
-### Change database schema
+| Variable | Required | Description |
+| --- | --- | --- |
+| `ARCJET_KEY` | Production only | Arcjet API key (bot protection + WAF). Omit in dev to disable Arcjet. |
+| `BETTER_STACK_SOURCE_TOKEN` | Optional | Better Stack log ingestion token |
+| `BETTER_STACK_INGESTING_HOST` | Optional | Better Stack ingestion host URL |
 
-To modify the database schema in the project, you can update the schema file located at `./src/models/Schema.ts`. This file defines the structure of your database tables using the Drizzle ORM library.
+### Client-side (publicly exposed)
 
-After making changes to the schema, generate a migration by running the following command:
+| Variable | Required | Description |
+| --- | --- | --- |
+| `NEXT_PUBLIC_APP_URL` | Optional | Full URL of the deployed app (e.g. `https://example.com`) |
+| `NEXT_PUBLIC_LOGGING_LEVEL` | Optional | Log level: `error`, `warn`, `info`, `debug`, `trace`, `fatal`. Default: `info` |
+| `NEXT_PUBLIC_POSTHOG_KEY` | Optional | PostHog project API key |
+| `NEXT_PUBLIC_POSTHOG_HOST` | Optional | PostHog host URL |
+| `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry DSN for error reporting |
+
+### CI / deployment
+
+| Variable | Where | Description |
+| --- | --- | --- |
+| `SENTRY_AUTH_TOKEN` | Hosting provider | Sentry source map upload token |
+| `SENTRY_ORGANIZATION` | CI / hosting | Sentry organisation slug |
+| `SENTRY_PROJECT` | CI / hosting | Sentry project slug |
+| `CODECOV_TOKEN` | GitHub Actions secret | Codecov upload token |
+| `CROWDIN_PROJECT_ID` | GitHub Actions secret | Crowdin project ID |
+| `CROWDIN_PERSONAL_TOKEN` | GitHub Actions secret | Crowdin personal access token |
+| `CHECKLY_API_KEY` | GitHub Actions secret | Checkly API key |
+| `CHECKLY_ACCOUNT_ID` | GitHub Actions secret | Checkly account ID |
+
+> **Security note:** `BETTER_STACK_SOURCE_TOKEN` and `BETTER_STACK_INGESTING_HOST` are intentionally server-only variables. Do not prefix them with `NEXT_PUBLIC_` — doing so would expose your log ingestion credentials to the browser.
+
+---
+
+## Customization
+
+Search the project for `FIXME:` to find the most common customization points. Key files:
+
+- `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-*.png` — site favicon
+- `src/utils/AppConfig.ts` — app name, locale list, and other constants
+- `src/templates/BaseTemplate.tsx` — navigation layout and footer
+- `next.config.ts` — Next.js config, security headers, plugin options
+- `.env` — default environment variable values (committed, safe defaults only)
+
+---
+
+## Translation (i18n)
+
+The project uses `next-intl` for runtime i18n and [Crowdin](https://l.crowdin.com/next-js) for translation management.
+
+Translation files live in `src/locales/`. The English file (`en.json`) is the source of truth. Crowdin automatically synchronises changes on every push to `main`.
+
+To validate translations locally:
 
 ```shell
-npm run db:generate
+pnpm check:i18n
 ```
 
-This will create a migration file that reflects your schema changes.
+### Crowdin setup
 
-After making sure your database is running, you can apply the generated migration using:
+1. Create an account at [Crowdin.com](https://l.crowdin.com/next-js) and create a new project
+2. Copy the **Project ID** from the project settings
+3. Generate a **Personal Access Token** (Account Settings > API)
+4. Add `CROWDIN_PROJECT_ID` and `CROWDIN_PERSONAL_TOKEN` as GitHub Actions secrets
+
+Once set, translations are synchronised on every push to `main` and on every pull request.
+
+---
+
+## Security
+
+This boilerplate ships with Fintech-grade security defaults out of the box.
+
+### HTTP security headers
+
+Applied globally in `next.config.ts`:
+
+| Header | Value |
+| --- | --- |
+| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` |
+| `X-Frame-Options` | `DENY` |
+| `X-Content-Type-Options` | `nosniff` |
+| `X-XSS-Protection` | `0` (disabled — rely on CSP per OWASP guidance) |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()` |
+| `X-DNS-Prefetch-Control` | `on` |
+
+### Arcjet (bot protection + WAF)
+
+[Arcjet](https://launch.arcjet.com/Q6eLbRE) is configured in `src/libs/Arcjet.ts` and applied in `src/proxy.ts` (Next.js middleware).
+
+- **Shield WAF** — blocks SQL injection, XSS, and other OWASP Top 10 attacks on every request
+- **Bot detection** — allows search engines, preview link generators, and uptime monitors; blocks scrapers and AI crawlers
+- In development, Arcjet is skipped if `ARCJET_KEY` is not set
+- In production, the app throws at startup if `ARCJET_KEY` is missing
+
+To enable Arcjet, [create a free account](https://launch.arcjet.com/Q6eLbRE) and add your key:
 
 ```shell
-npm run db:migrate
+ARCJET_KEY=ajkey_your_key_here
 ```
 
-There is no need to restart the Next.js server for the changes to take effect.
+### Sentry (error monitoring, PII-safe)
 
-### Commit Message Format
+Sentry is configured with strict PII protection:
 
-The project follows the [Conventional Commits](https://www.conventionalcommits.org/) specification, meaning all commit messages must be formatted accordingly. To help you write commit messages, the project provides an interactive CLI that guides you through the commit process. To use it, run the following command:
+- `sendDefaultPii: false` — no automatic user identity attached to events
+- `maskAllText: true`, `maskAllInputs: true`, `blockAllMedia: true` — session replay captures no sensitive data
+- Trace sample rate: `0.1` (10%) — reduced to limit data exposure
+- Replay sample rate: `0.1` on error only
+
+For production, add to your hosting provider:
 
 ```shell
-npm run commit
+NEXT_PUBLIC_SENTRY_DSN=https://...@sentry.io/...
+SENTRY_ORGANIZATION=your-org-slug
+SENTRY_PROJECT=your-project-slug
+SENTRY_AUTH_TOKEN=your-auth-token
 ```
 
-One of the benefits of using Conventional Commits is the ability to automatically generate GitHub releases. It also allows us to automatically determine the next version number based on the types of commits that are included in a release.
+### Server-only logger
 
-#### Commit Types
+`src/libs/Logger.ts` is guarded with `import 'server-only'`. It cannot be accidentally imported in client components. All logs use structured JSON format (LogTape) and are forwarded to Better Stack in production.
 
-Every commit message follows Conventional Commits and must begin with a type prefix (e.g., `feat: add login page`). The table below lists the available types:
+---
+
+## Error monitoring
+
+### Local development
+
+No setup needed. Sentry Spotlight runs alongside the dev server and captures all errors at [http://localhost:8969](http://localhost:8969).
+
+### Production
+
+```shell
+NEXT_PUBLIC_SENTRY_DSN=https://...
+SENTRY_ORGANIZATION=your-org
+SENTRY_PROJECT=your-project
+SENTRY_AUTH_TOKEN=sntrys_...
+```
+
+---
+
+## Logging
+
+Server-side structured logging is provided by [LogTape](https://logtape.org). Import the logger in any server component or API route:
+
+```ts
+import { logger } from '@/libs/Logger';
+
+logger.info('Payment initiated', { amount: 100, currency: 'USD' });
+```
+
+In development, logs are printed to the console in JSON Lines format.
+
+For production log management, integrate [Better Stack](https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi):
+
+1. Create a Better Stack account → Logs → Sources → Connect source (Node.js)
+2. Copy the **source token** and **ingesting host**
+3. Add as **server-side** environment variables (not `NEXT_PUBLIC_`):
+
+```shell
+BETTER_STACK_SOURCE_TOKEN=your_token
+BETTER_STACK_INGESTING_HOST=in.logs.betterstack.com
+```
+
+---
+
+## Checkly monitoring
+
+[Checkly](https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi) runs tests ending in `*.check.e2e.ts` against your deployed environment at regular intervals.
+
+Setup:
+
+1. Create a Checkly account and generate an API key
+2. Add `CHECKLY_API_KEY` and `CHECKLY_ACCOUNT_ID` as GitHub Actions secrets
+3. Update `checkly.config.ts` with your project name and email address
+
+Tests run automatically after every successful deployment via the `checkly.yml` workflow.
+
+---
+
+## Testing
+
+### Unit tests
+
+Unit test files follow the `*.test.ts` / `*.test.tsx` pattern and live next to their implementation files.
+
+```shell
+pnpm test
+```
+
+Coverage is reported to [Codecov](https://codecov.io) in CI. Add `CODECOV_TOKEN` as a GitHub Actions secret to enable it.
+
+### E2E tests
+
+E2E tests use Playwright and live in `tests/e2e/`. Files ending in `*.check.e2e.ts` are also picked up by Checkly for production monitoring.
+
+```shell
+npx playwright install  # first time only
+pnpm test:e2e
+```
+
+---
+
+## Build
+
+### Local production build
+
+```shell
+pnpm build-local
+```
+
+Runs `next build` using only local environment variables (`.env`). No database or external services required.
+
+### CI / production build
+
+```shell
+pnpm build
+```
+
+Same as `build-local`. Add the required environment variables in your hosting provider's dashboard.
+
+### Start the production server
+
+```shell
+pnpm start
+```
+
+Serves the output of `pnpm build` on [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Useful commands
+
+### Code quality
+
+| Command | Description |
+| --- | --- |
+| `pnpm lint` | Run Oxlint via Ultracite |
+| `pnpm lint:fix` | Auto-fix lint issues |
+| `pnpm check:types` | TypeScript type checking (`tsc --noEmit`) |
+| `pnpm check:deps` | Detect unused files and dependencies (Knip) |
+| `pnpm check:i18n` | Validate translation completeness |
+
+### Testing
+
+| Command | Description |
+| --- | --- |
+| `pnpm test` | Run unit tests with Vitest |
+| `pnpm test:e2e` | Run E2E tests with Playwright |
+
+### Build
+
+| Command | Description |
+| --- | --- |
+| `pnpm build-local` | Production build (local env) |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve the production build |
+| `pnpm build-stats` | Bundle analysis (opens browser) |
+| `pnpm clean` | Remove `.next`, `out`, and `coverage` directories |
+
+### Development
+
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start dev server + Spotlight |
+
+---
+
+## Commit message format
+
+The project follows [Conventional Commits](https://www.conventionalcommits.org/). All commit messages must start with a type prefix:
 
 | Type | Description |
 | --- | --- |
@@ -340,305 +464,50 @@ Every commit message follows Conventional Commits and must begin with a type pre
 | `fix` | Bug fix |
 | `docs` | Documentation only |
 | `style` | Code formatting without logic changes |
-| `refactor` | Code restructuring without behavior changes |
+| `refactor` | Code restructuring without behaviour changes |
 | `perf` | Performance improvement |
 | `test` | Adding or updating tests |
-| `build` | Build system |
+| `build` | Build system changes |
 | `ci` | CI configuration and scripts |
 | `chore` | Maintenance tasks (dependencies, config) |
 | `revert` | Reverts a previous commit |
 
-### CodeRabbit AI Code Reviews
+Example: `feat: add payment intent API route`
 
-The project uses [CodeRabbit](https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025), an AI-powered code reviewer. CodeRabbit monitors your repository and automatically provides intelligent code reviews on all new pull requests using its powerful AI engine.
+---
 
-Setting up CodeRabbit is simple, visit [coderabbit.ai](https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025), sign in with your GitHub account, and add your repository from the dashboard. That's it!
+## CodeRabbit AI code reviews
 
-### Testing
+[CodeRabbit](https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025) monitors the repository and automatically reviews all new pull requests.
 
-All unit tests are located alongside the source code in the same directory, making them easier to find. The unit test files follow this format: `*.test.ts` or `*.test.tsx`. The project uses Vitest and React Testing Library for unit testing. You can run the tests with the following command:
+Setup: visit [coderabbit.ai](https://www.coderabbit.ai), sign in with GitHub, and add your repository.
 
-```shell
-npm run test
-```
+---
 
-### Integration & E2E Testing
+## VSCode
 
-The project uses Playwright for integration and end-to-end (E2E) testing. Integration test files use the `*.spec.ts` extension, while E2E test files use the `*.e2e.ts` extension. You can run the tests with the following commands:
+Install the recommended extensions from `.vscode/extensions.json` for the best experience. The workspace includes:
 
-```shell
-npx playwright install # Only for the first time in a new environment
-npm run test:e2e
-```
+- Integrated debug configuration for both frontend and API routes
+- Vitest extension for inline test results and coverage
+- Oxlint and Oxfmt for formatting and linting on save
 
-### Storybook
+---
 
-Storybook is configured for UI component development and testing. The project uses Storybook with Next.js and Vite integration, including accessibility testing and documentation features.
+## Contributions
 
-Stories are located alongside your components in the `src` directory and follow the pattern `*.stories.ts` or `*.stories.tsx`.
+Everyone is welcome to contribute. Open an issue for questions or bugs. Pull requests are welcome.
 
-You can run Storybook in development mode with:
+---
 
-```shell
-npm run storybook
-```
-
-This will start Storybook on http://localhost:6006 where you can view and interact with your UI components in isolation.
-
-To run Storybook tests in headless mode, you can use the following command:
-
-```shell
-npm run storybook:test
-```
-
-### Local Production Build
-
-Generate an optimized production build locally using a temporary in-memory Postgres database:
-
-```shell
-npm run build-local
-```
-
-This command:
-
-- Starts a temporary in-memory Database server
-- Runs database migrations with Drizzle Kit
-- Builds the Next.js app for production
-- Shuts down the temporary DB when the build finishes
-
-Notes:
-
-- By default, it uses a local database, but you can also use `npm run build` with a remote database.
-- This only creates the build, it doesn't start the server. To run the build locally, use `npm run start`.
-
-### Deploy to production
-
-During the build process, database migrations are automatically executed, so there's no need to run them manually. However, you must define `DATABASE_URL` in your environment variables. You can use any PostgreSQL provider, but we recommend using [Neon](https://get.neon.com/BMFYNtx), which offers a free tier and is compatible with Next.js Boilerplate.
-
-Then, you can generate a production build with:
-
-```shell
-$ npm run build
-```
-
-It generates an optimized production build of the boilerplate. To test the generated build, run:
-
-```shell
-$ npm run start
-```
-
-You also need to defined the environment variables `CLERK_SECRET_KEY` using your own key.
-
-This command starts a local server using the production build. You can now open http://localhost:3000 in your preferred browser to see the result.
-
-### Error Monitoring
-
-The project uses [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo) to monitor errors.
-
-#### Local development with Sentry and Spotlight
-
-In the development environment, no additional setup is required: Next.js Boilerplate comes pre-configured with Sentry and Spotlight (Sentry for Development). All errors are automatically captured by your local Spotlight instance, enabling testing without sending data to Sentry Cloud.
-
-You can inspect captured events, view stack traces, and analyze errors in the Spotlight UI at `http://localhost:8969`.
-
-#### Production setup with Sentry
-
-For production environment, you'll need to create a Sentry account and a new project. Then, in `.env.production`, you need to update the following environment variables:
-
-```shell
-NEXT_PUBLIC_SENTRY_DSN=
-SENTRY_ORGANIZATION=
-SENTRY_PROJECT=
-```
-
-You also need to create a environment variable `SENTRY_AUTH_TOKEN` in your hosting provider's dashboard.
-
-### Code coverage
-
-Next.js Boilerplate relies on [Codecov](https://about.codecov.io/codecov-free-trial/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo) for code coverage reporting solution. To enable Codecov, create a Codecov account and connect it to your GitHub account. Your repositories should appear on your Codecov dashboard. Select the desired repository and copy the token. In GitHub Actions, define the `CODECOV_TOKEN` environment variable and paste the token.
-
-Make sure to create `CODECOV_TOKEN` as a GitHub Actions secret, do not paste it directly into your source code.
-
-### Logging
-
-The project uses LogTape for logging. In the development environment, logs are displayed in the console by default.
-
-For production, the project is already integrated with [Better Stack](https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi) to manage and query your logs using SQL. To use Better Stack, you need to create a [Better Stack](https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi) account and create a new source: go to your Better Stack Logs Dashboard > Sources > Connect source. Then, you need to give a name to your source and select Node.js as the platform.
-
-After creating the source, you will be able to view and copy your source token. In your environment variables, paste the token into the `NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN` variable. You'll also need to define the `NEXT_PUBLIC_BETTER_STACK_INGESTING_HOST` variable, which can be found in the same place as the source token.
-
-Now, all logs will automatically be sent to and ingested by Better Stack.
-
-### Checkly monitoring
-
-The project uses [Checkly](https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi) to ensure that your production environment is always up and running. At regular intervals, Checkly runs the tests ending with `*.check.e2e.ts` extension and notifies you if any of the tests fail. Additionally, you have the flexibility to execute tests from multiple locations to ensure that your application is available worldwide.
-
-To use Checkly, you must first create an account on [their website](https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi). After creating an account, generate a new API key in the Checkly Dashboard and set the `CHECKLY_API_KEY` environment variable in GitHub Actions. Additionally, you will need to define the `CHECKLY_ACCOUNT_ID`, which can also be found in your Checkly Dashboard under User Settings > General.
-
-To complete the setup, update the `checkly.config.ts` file with your own email address and production URL.
-
-### Arcjet security and bot protection
-
-The project uses [Arcjet](https://launch.arcjet.com/Q6eLbRE), a security as code product that includes several features that can be used individually or combined to provide defense in depth for your site.
-
-To set up Arcjet, [create a free account](https://launch.arcjet.com/Q6eLbRE) and get your API key. Then add it to the `ARCJET_KEY` environment variable.
-
-Arcjet is configured with two main features: bot detection and the Arcjet Shield WAF:
-
-- [Bot detection](https://docs.arcjet.com/bot-protection/concepts) is configured to allow search engines, preview link generators e.g. Slack and Twitter previews, and to allow common uptime monitoring services. All other bots, such as scrapers and AI crawlers, will be blocked. You can [configure additional bot types](https://docs.arcjet.com/bot-protection/identifying-bots) to allow or block.
-- [Arcjet Shield WAF](https://docs.arcjet.com/shield/concepts) will detect and block common attacks such as SQL injection, cross-site scripting, and other OWASP Top 10 vulnerabilities.
-
-Arcjet is configured with a central client at `src/libs/Arcjet.ts` that includes the Shield WAF rules. Additional rules are applied when Arcjet is called in `proxy.ts`.
-
-### Useful commands
-
-### Code Quality and Validation
-
-The project includes several commands to ensure code quality and consistency. You can run:
-
-- `npm run lint` to check for linting errors
-- `npm run lint:fix` to automatically fix fixable issues from the linter
-- `npm run check:types` to verify type safety across the entire project
-- `npm run check:deps` help identify unused dependencies and files
-- `npm run check:i18n` ensures all translations are complete and properly formatted
-
-#### Bundle Analyzer
-
-Next.js Boilerplate includes a built-in bundle analyzer. It can be used to analyze the size of your JavaScript bundles. To begin, run the following command:
-
-```shell
-npm run build-stats
-```
-
-By running the command, it'll automatically open a new browser window with the results.
-
-#### Database Studio
-
-The project is already configured with Drizzle Studio to explore the database. You can run the following command to open the database studio:
-
-```shell
-npm run db:studio
-```
-
-Then, you can open https://local.drizzle.studio with your favorite browser to explore your database.
-
-### VSCode information (optional)
-
-If you are VSCode user, you can have a better integration with VSCode by installing the suggested extension in `.vscode/extension.json`. The starter code comes up with Settings for a seamless integration with VSCode. The Debug configuration is also provided for frontend and backend debugging experience.
-
-With the plugins installed in your VSCode, ESLint and Prettier can automatically fix the code and display errors. The same applies to testing: you can install the VSCode Vitest extension to automatically run your tests, and it also shows the code coverage in context.
-
-Pro tips: if you need a project wide-type checking with TypeScript, you can run a build with <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> on Mac.
-
-### Contributions
-
-Everyone is welcome to contribute to this project. Feel free to open an issue if you have any questions or find a bug. Totally open to suggestions and improvements.
-
-### License
+## License
 
 Licensed under the MIT License, Copyright © 2026
 
 See [LICENSE](LICENSE) for more information.
 
-## Sponsors
-
-<table width="100%">
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/clerk-logo-dark.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/clerk-logo-dark.png?raw=true">
-          <img alt="Clerk – Authentication & User Management for Next.js" src="public/assets/images/clerk-logo-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/coderabbit-logo-dark.svg?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/coderabbit-logo-light.svg?raw=true">
-          <img alt="CodeRabbit" src="public/assets/images/coderabbit-logo-light.svg?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/sentry-white.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/sentry-dark.png?raw=true">
-          <img alt="Sentry" src="public/assets/images/sentry-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-  </tr>
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://launch.arcjet.com/Q6eLbRE">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/arcjet-dark.svg?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/arcjet-light.svg?raw=true">
-          <img alt="Arcjet" src="public/assets/images/arcjet-light.svg?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://l.crowdin.com/next-js">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/crowdin-white.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/crowdin-dark.png?raw=true">
-          <img alt="Crowdin" src="public/assets/images/crowdin-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/better-stack-white.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/better-stack-dark.png?raw=true">
-          <img alt="Better Stack" src="public/assets/images/better-stack-dark.png?raw=true">
-        </picture>
-      </a>
-    </td>
-  </tr>
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://posthog.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://posthog.com/brand/posthog-logo-white.svg">
-          <source media="(prefers-color-scheme: light)" srcset="https://posthog.com/brand/posthog-logo.svg">
-          <img alt="PostHog" src="https://posthog.com/brand/posthog-logo.svg">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=sachidananda-panigrahi">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/checkly-logo-dark.png?raw=true">
-          <source media="(prefers-color-scheme: light)" srcset="public/assets/images/checkly-logo-light.png?raw=true">
-          <img alt="Checkly" src="public/assets/images/checkly-logo-light.png?raw=true">
-        </picture>
-      </a>
-    </td>
-    <td align="center" style=width="33%">
-      <a href="https://github.com/sachidananda-panigrahi/next-js-boilerplate">
-        <img src="public/assets/images/nextjs-boilerplate-saas.png?raw=true" alt="Next.js SaaS Boilerplate with React" />
-      </a>
-    </td>
-  </tr>
-  <tr height="187px">
-    <td align="center" width="33%">
-      <a href="https://github.com/sachidananda-panigrahi/next-js-boilerplate">
-        Add your logo here
-      </a>
-    </td>
-  </tr>
-</table>
-
 ---
 
 Maintained by [sachidananda-panigrahi](https://github.com/sachidananda-panigrahi)
 
-For updates and issues, please use the repository issue tracker.
-
-[Project repository](https://github.com/sachidananda-panigrahi/next-js-boilerplate)
+For updates and issues, use the [repository issue tracker](https://github.com/sachidananda-panigrahi/next-js-boilerplate/issues).
