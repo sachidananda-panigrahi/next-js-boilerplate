@@ -1,10 +1,16 @@
 import arcjet, { shield } from '@arcjet/next';
 
+const key = process.env.ARCJET_KEY;
+
+if (!key && process.env.NODE_ENV === 'production') {
+  // throw new Error('ARCJET_KEY is required in production');
+}
+
 // Create a base Arcjet instance which can be imported and extended in each route.
 export default arcjet({
   // Get your site key from https://launch.arcjet.com/Q6eLbRE
   // Use `process.env` instead of Env to reduce bundle size in middleware
-  key: process.env.ARCJET_KEY ?? '',
+  key: key ?? '',
   // Identify the user by their IP address
   characteristics: ['ip.src'],
   rules: [
@@ -12,6 +18,5 @@ export default arcjet({
     shield({
       mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
     }),
-    // Other rules are added in different routes
   ],
 });

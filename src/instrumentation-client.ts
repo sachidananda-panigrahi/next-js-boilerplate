@@ -8,12 +8,12 @@ if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
   Sentry.init({
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
-    // Add optional integrations for additional features
     integrations: [
       Sentry.replayIntegration({
-        maskAllText: false,
-        maskAllInputs: false,
-        blockAllMedia: false,
+        // Fintech: mask all user input and text to prevent PII capture in session replays
+        maskAllText: true,
+        maskAllInputs: true,
+        blockAllMedia: true,
       }),
       Sentry.consoleLoggingIntegration(),
       Sentry.browserTracingIntegration(),
@@ -21,24 +21,19 @@ if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
       ...(process.env.NODE_ENV === 'development' ? [Sentry.spotlightBrowserIntegration()] : []),
     ],
 
-    // Adds request headers and IP for users, for more info visit
-    sendDefaultPii: true,
+    // Fintech: do not capture request headers or user IPs
+    sendDefaultPii: false,
 
-    // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-    tracesSampleRate: 1,
+    // Sample 10% of traces in all environments — increase only with explicit review
+    tracesSampleRate: 0.1,
 
-    // Define how likely Replay events are sampled.
-    // This sets the sample rate to be 10%. You may want this to be 100% while
-    // in development and sample at a lower rate in production
+    // 10% of sessions sampled; 100% when an error occurs
     replaysSessionSampleRate: 0.1,
-
-    // Define how likely Replay events are sampled when an error occurs.
-    replaysOnErrorSampleRate: 1,
+    replaysOnErrorSampleRate: 0.1,
 
     // Enable logs to be sent to Sentry
     enableLogs: true,
 
-    // Setting this option to true will print useful information to the console while you're setting up Sentry.
     debug: false,
   });
 }

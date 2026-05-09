@@ -4,6 +4,20 @@ import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
+const securityHeaders = [
+  { key: 'X-DNS-Prefetch-Control', value: 'on' },
+  { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' },
+  { key: 'X-Frame-Options', value: 'DENY' },
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  // Disable legacy XSS auditor — rely on CSP instead (OWASP recommendation)
+  { key: 'X-XSS-Protection', value: '0' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()',
+  },
+];
+
 // Define the base Next.js configuration
 const baseConfig: NextConfig = {
   devIndicators: {
@@ -15,8 +29,13 @@ const baseConfig: NextConfig = {
   logging: {
     browserToTerminal: process.env.BROWSER_TO_TERMINAL_DISABLED !== 'true',
   },
-  outputFileTracingIncludes: {
-    '/': ['./migrations/**/*'],
+  headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ];
   },
 };
 
@@ -31,38 +50,27 @@ if (process.env.ANALYZE === 'true') {
 // Conditionally enable Sentry configuration
 if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
   configWithPlugins = withSentryConfig(configWithPlugins, {
-    // For all available options, see:
-    // https://www.npmjs.com/package/@sentry/webpack-plugin#options
     org: process.env.SENTRY_ORGANIZATION,
     project: process.env.SENTRY_PROJECT,
 
     // Only print logs for uploading source maps in CI
     silent: !process.env.CI,
 
-    // For all available options, see:
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-
     // Upload a larger set of source maps for prettier stack traces (increases build time)
     widenClientFileUpload: true,
 
     // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-    // This can increase your server load as well as your hosting bill.
-    // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-    // side errors will fail.
     tunnelRoute: '/monitoring',
 
     webpack: {
       reactComponentAnnotation: {
         enabled: true,
       },
-
-      // Tree-shake Sentry logger statements to reduce bundle size
       treeshake: {
         removeDebugLogging: true,
       },
     },
 
-    // Disable Sentry telemetry
     telemetry: false,
   });
 }

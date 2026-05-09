@@ -1,3 +1,4 @@
+import 'server-only';
 import type { AsyncSink } from '@logtape/logtape';
 import {
   configure,
@@ -9,19 +10,18 @@ import {
 import { Env } from './Env';
 
 const betterStackSink: AsyncSink = async (record) => {
-  await fetch(`https://${Env.NEXT_PUBLIC_BETTER_STACK_INGESTING_HOST}`, {
+  await fetch(`https://${Env.BETTER_STACK_INGESTING_HOST}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${Env.NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN}`,
+      Authorization: `Bearer ${Env.BETTER_STACK_SOURCE_TOKEN}`,
     },
     body: JSON.stringify(record),
   });
 };
 
 const canForwardToBetterStack =
-  Boolean(Env.NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN) &&
-  Boolean(Env.NEXT_PUBLIC_BETTER_STACK_INGESTING_HOST);
+  Boolean(Env.BETTER_STACK_SOURCE_TOKEN) && Boolean(Env.BETTER_STACK_INGESTING_HOST);
 
 await configure({
   sinks: {

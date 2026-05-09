@@ -19,7 +19,7 @@ export const config = defineConfig({
   checks: {
     locations: ['us-east-1', 'eu-central-1'],
     tags: ['website'],
-    runtimeId: '2024.02',
+    runtimeId: '2024.09',
     browserChecks: {
       frequency: Frequency.EVERY_24H,
       testMatch: '**/tests/e2e/**/*.check.e2e.ts',
@@ -28,8 +28,11 @@ export const config = defineConfig({
     playwrightConfig: {
       use: {
         baseURL: process.env.ENVIRONMENT_URL ?? process.env.NEXT_PUBLIC_APP_URL,
+        // VERCEL_BYPASS_TOKEN is injected via Checkly secrets — never commit the value
         extraHTTPHeaders: {
-          'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN,
+          ...(process.env.VERCEL_BYPASS_TOKEN && {
+            'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN,
+          }),
         },
       },
     },

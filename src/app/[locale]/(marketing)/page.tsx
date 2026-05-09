@@ -41,9 +41,7 @@ export default async function Index(props: IndexPageProps) {
         </a>
         {` for updates and more information about this project.`}
       </p>
-      <h2 className="mt-5 text-2xl font-bold">
-        Starter code for your Next.js project with Tailwind CSS
-      </h2>
+      <h2 className="mt-5 text-2xl font-bold">{t('heading')}</h2>
       <p className="text-base">
         This template is a developer-friendly starter codebase for Next.js projects, built with
         Tailwind CSS and TypeScript.{' '}
@@ -57,26 +55,6 @@ export default async function Index(props: IndexPageProps) {
         <li>🔥 TypeScript for type checking</li>
         <li>💎 Tailwind CSS integration</li>
         <li>
-          🔒 Authentication with{' '}
-          <a
-            className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
-            href="https://clerk.com?utm_source=github&amp;utm_medium=sponsorship&amp;utm_campaign=nextjs-boilerplate"
-          >
-            Clerk
-          </a>{' '}
-          (includes passwordless, social, and multi-factor auth)
-        </li>
-        <li>📦 ORM with DrizzleORM (PostgreSQL, SQLite, MySQL support)</li>
-        <li>
-          💽 Dev database with PGlite and production with{' '}
-          <a
-            className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
-            href="https://get.neon.com/BMFYNtx"
-          >
-            Neon
-          </a>
-        </li>
-        <li>
           🌐 Multi-language support (i18n) with next-intl and{' '}
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
@@ -87,9 +65,8 @@ export default async function Index(props: IndexPageProps) {
         </li>
         <li>🔴 Form handling (React Hook Form) and validation (Zod)</li>
         <li>📏 Linting and formatting (ESLint, Prettier)</li>
-        <li>🦊 Git hooks and commit linting (Husky, Commitlint)</li>
+        <li>🦊 Git hooks (Lefthook)</li>
         <li>🦺 Testing suite (Vitest, React Testing Library, Playwright)</li>
-        <li>🎉 Storybook for UI development</li>
         <li>
           🐰 AI-powered code reviews with{' '}
           <a
@@ -121,7 +98,7 @@ export default async function Index(props: IndexPageProps) {
           )
         </li>
         <li>🤖 SEO optimization (metadata, JSON-LD, Open Graph tags)</li>
-        <li>⚙️ Development tools (VSCode config, bundler analyzer, changelog generation)</li>
+        <li>⚙️ Development tools (VSCode config, bundler analyzer)</li>
       </ul>
       <p className="text-base">
         Our sponsors&apos; exceptional support has made this project possible. Their services
