@@ -59,21 +59,6 @@ Built-in from Next.js:
 - 💨 Live reload
 - ✅ Cache busting
 
-### What was intentionally removed
-
-This boilerplate is slimmed down from the upstream template to reduce scope and attack surface:
-
-| Removed | Reason |
-| --- | --- |
-| Clerk authentication | No auth baked in — add your own (Better Auth, NextAuth, Auth.js) |
-| DrizzleORM + DrizzleKit | No database layer — bring your own ORM and provider |
-| PGlite (local DB) | Not needed without ORM |
-| Neon (remote DB) | Not needed without ORM |
-| Storybook | Removed to reduce tooling surface area |
-| Semantic Release | Manual releases preferred; changelog via conventional commits |
-| Commitlint | Commit format enforced by convention, not tooling |
-| Commitizen | Removed with Commitlint |
-
 ### Optional features (easy to add)
 
 - 🔑 Authentication — [Better Auth](https://www.better-auth.com), [Auth.js](https://authjs.dev), or [Clerk](https://clerk.com)
