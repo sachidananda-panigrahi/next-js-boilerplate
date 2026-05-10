@@ -14,6 +14,7 @@ const config: KnipConfig = {
     '@faker-js/faker', // Test data generation utility — kept for future test authoring
     '@hookform/resolvers', // Form validation resolvers — kept as boilerplate for form-heavy features
     '@logtape/logtape', // Used by Logger.ts (ignored above)
+    '@platformatic/next', // Watt runtime capability — loaded by wattpm from watt.json, not imported in code
     '@swc/helpers', // Avoid error in CI: "`npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync."
     'lefthook', // Git hook runner — read from lefthook.yml, not imported in code
     'react-hook-form', // Form state management — kept as boilerplate for form-heavy features

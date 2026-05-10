@@ -154,9 +154,12 @@ Open [http://localhost:3000](http://localhost:3000) to see your project. No data
 │       ├── I18n.e2e.ts             # Language switching E2E test
 │       └── Sanity.check.e2e.ts     # Checkly sanity checks
 ├── checkly.config.ts               # Checkly Monitoring as Code config
+├── Dockerfile                      # Multi-stage Docker build (Watt + standalone)
+├── .dockerignore                   # Docker build context exclusions
 ├── knip.config.ts                  # Knip unused code/dep detection
 ├── lefthook.yml                    # Git pre-commit hooks
-├── next.config.ts                  # Next.js config (security headers, plugins)
+├── next.config.ts                  # Next.js config (security headers, plugins, standalone output)
+├── watt.json                       # Platformatic Watt runtime config (@platformatic/next)
 ├── playwright.config.ts            # Playwright E2E test config
 ├── tsconfig.json                   # TypeScript config
 └── vitest.config.ts                # Vitest unit test config
@@ -402,6 +405,53 @@ Serves the output of `pnpm build` on [http://localhost:3000](http://localhost:30
 
 ---
 
+## Watt & Docker
+
+This boilerplate ships with [Platformatic Watt](https://platformatichq.com/watt) integration for production deployment. Watt runs the Next.js app as a **worker thread**, providing auto-healing, built-in Pino structured logging, Prometheus metrics, and OpenTelemetry tracing — without extra infrastructure.
+
+> **Node.js 22+ is required** — Platformatic Watt (`@platformatic/next`) requires `>=22.19.0`.
+
+### How it works
+
+- `watt.json` at the project root configures `@platformatic/next` with standalone mode enabled
+- `output: 'standalone'` in `next.config.ts` produces a self-contained `.next/standalone/server.js`
+- `wattpm start` reads `watt.json`, loads the `@platformatic/next` capability, and runs the standalone server as a worker thread
+
+### Local development with Watt
+
+```shell
+pnpm watt:dev    # Watch mode (re-starts on file changes)
+pnpm watt:build  # Build for production via Watt
+pnpm watt:start  # Start the Watt production server
+```
+
+Set these in your `.env` for local Watt runs:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `PLT_SERVER_HOSTNAME` | `127.0.0.1` | Server bind address (use `0.0.0.0` in Docker) |
+| `PORT` | `3000` | Server port |
+
+### Docker (standalone mode)
+
+The multi-stage `Dockerfile` follows the [official Platformatic standalone pattern](https://docs.platformatic.dev/docs/guides/deployment/nextjs-in-k8s):
+
+- **Stage 1 (builder):** pnpm installs all deps and builds Next.js with `output: 'standalone'`
+- **Stage 2 (runner):** copies the self-contained standalone bundle, installs `wattpm` + `@platformatic/next` globally, and runs `wattpm start`
+
+```shell
+pnpm docker:build    # Build the Docker image (tag: next-js-boilerplate)
+pnpm docker:run      # Run the container (reads .env, binds port 3000)
+```
+
+Pass environment variables at runtime — never bake secrets into the image:
+
+```shell
+docker run --env-file .env.production -p 3000:3000 next-js-boilerplate
+```
+
+---
+
 ## Useful commands
 
 ### Code quality
@@ -436,6 +486,21 @@ Serves the output of `pnpm build` on [http://localhost:3000](http://localhost:30
 | Command | Description |
 | --- | --- |
 | `pnpm dev` | Start dev server + Spotlight |
+
+### Watt (production runtime)
+
+| Command | Description |
+| --- | --- |
+| `pnpm watt:dev` | Start in Watt watch mode |
+| `pnpm watt:build` | Build via Watt |
+| `pnpm watt:start` | Start Watt production server |
+
+### Docker
+
+| Command | Description |
+| --- | --- |
+| `pnpm docker:build` | Build Docker image (`next-js-boilerplate`) |
+| `pnpm docker:run` | Run container with `.env`, port 3000 |
 
 ---
 

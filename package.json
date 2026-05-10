@@ -26,12 +26,18 @@
     "check:deps": "knip",
     "check:i18n": "i18n-check -l src/locales -s en -u src -f next-intl",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "watt:dev": "wattpm dev",
+    "watt:build": "wattpm build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
+    "watt:start": "wattpm start",
+    "docker:build": "docker build -t next-js-boilerplate .",
+    "docker:run": "docker run --env-file .env -p 3000:3000 next-js-boilerplate"
   },
   "dependencies": {
     "@arcjet/next": "^1.4.0",
     "@hookform/resolvers": "^5.2.2",
     "@logtape/logtape": "^2.0.7",
+    "@platformatic/next": "^3.54.0",
     "@sentry/nextjs": "^10.52.0",
     "@t3-oss/env-nextjs": "^0.13.11",
     "next": "^16.2.6",
@@ -71,19 +77,18 @@
     "ultracite": "^7.6.5",
     "vite": "^8.0.11",
     "vitest": "^4.1.5",
-    "vitest-browser-react": "^2.2.0"
+    "vitest-browser-react": "^2.2.0",
+    "wattpm": "^3.54.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@sentry/cli",
-      "@swc/core",
-      "lefthook",
-      "sharp"
-    ],
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "eslint"
+      ]
+    },
     "overrides": {
       "postcss": ">=8.5.10"
     }

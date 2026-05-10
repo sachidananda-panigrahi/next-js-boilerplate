@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.github
+coverage
+.env
+.env.local
+.env*.local
+*.log
+.DS_Store
+tests/
+*.e2e.ts
+*.spec.ts
+*.test.ts
+*.test.tsx

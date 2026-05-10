@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/next/3.54.0.json",
+  "next": {
+    "standalone": true
+  },
+  "application": {
+    "commands": {
+      "development": "node_modules/.bin/next dev",
+      "production": "node .next/standalone/server.js"
+    }
+  },
+  "runtime": {
+    "server": {
+      "hostname": "{PLT_SERVER_HOSTNAME}",
+      "port": "{PORT}"
+    }
+  }
+}

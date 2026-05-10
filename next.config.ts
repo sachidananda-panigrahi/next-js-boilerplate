@@ -18,8 +18,14 @@ const securityHeaders = [
   },
 ];
 
-// Define the base Next.js configuration
 const baseConfig: NextConfig = {
+  output: 'standalone',
+  // Type checking is done via `pnpm check:types` (tsc --noEmit). Skipping it
+  // here avoids a false failure when wattpm's loader strips TypeScript
+  // annotations from next.config.ts before Next.js's internal TS checker runs.
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   devIndicators: {
     position: 'bottom-right',
   },
@@ -39,41 +45,40 @@ const baseConfig: NextConfig = {
   },
 };
 
-// Initialize the Next-Intl plugin
-let configWithPlugins = createNextIntlPlugin('./src/libs/I18n.ts')(baseConfig);
+const withIntl = createNextIntlPlugin('./src/libs/I18n.ts');
 
-// Conditionally enable bundle analysis
-if (process.env.ANALYZE === 'true') {
-  configWithPlugins = withBundleAnalyzer()(configWithPlugins);
-}
+// Compose plugins without top-level identifier reassignment (avoids a bug in
+// @platformatic/next loader-next-15.cjs which crashes on AssignmentExpressions
+// where the left-hand side is a plain identifier, not a MemberExpression).
+const withAnalyzer = (config: NextConfig) =>
+  process.env.ANALYZE === 'true' ? withBundleAnalyzer()(config) : config;
 
-// Conditionally enable Sentry configuration
-if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
-  configWithPlugins = withSentryConfig(configWithPlugins, {
-    org: process.env.SENTRY_ORGANIZATION,
-    project: process.env.SENTRY_PROJECT,
+const withSentry = (config: NextConfig) =>
+  process.env.NEXT_PUBLIC_SENTRY_DISABLED
+    ? config
+    : withSentryConfig(config, {
+        org: process.env.SENTRY_ORGANIZATION,
+        project: process.env.SENTRY_PROJECT,
 
-    // Only print logs for uploading source maps in CI
-    silent: !process.env.CI,
+        // Only print logs for uploading source maps in CI
+        silent: !process.env.CI,
 
-    // Upload a larger set of source maps for prettier stack traces (increases build time)
-    widenClientFileUpload: true,
+        // Upload a larger set of source maps for prettier stack traces (increases build time)
+        widenClientFileUpload: true,
 
-    // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-    tunnelRoute: '/monitoring',
+        // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
+        tunnelRoute: '/monitoring',
 
-    webpack: {
-      reactComponentAnnotation: {
-        enabled: true,
-      },
-      treeshake: {
-        removeDebugLogging: true,
-      },
-    },
+        webpack: {
+          reactComponentAnnotation: {
+            enabled: true,
+          },
+          treeshake: {
+            removeDebugLogging: true,
+          },
+        },
 
-    telemetry: false,
-  });
-}
+        telemetry: false,
+      });
 
-const nextConfig = configWithPlugins;
-export default nextConfig;
+export default withSentry(withAnalyzer(withIntl(baseConfig)));
